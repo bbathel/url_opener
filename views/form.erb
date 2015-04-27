@@ -1,0 +1,45 @@
+
+		<div class="formdiv">
+			<fieldset><legend><h1>OPEN SOME URLS</h1></legend><br>
+			<form method="post" action="/">
+				<textarea name="urls"></textarea><br>
+				<input type="submit" value="open">
+			</form></fieldset>
+		</div>
+		<div class="resultdiv">
+			<fieldset>
+				<legend>Links</legend>
+			<% if !params[:urls].nil? %>
+				<% urls = params[:urls] %>
+				<% urls.split.each do |url| %>
+					<% if (url =~ /https?/i )%>
+					<%= "<a class='link hidden' href='#{url}' target='_blank'>#{url}</a>" %>
+				        <% else %>
+					<%=  "<a class='link hidden' href='//#{url}' target='_blank'>#{url}</a>" %>
+					<% end %>
+				<% end %>
+				
+			<% end %>
+			</fieldset>
+			<button id="openall" >OPEN ALL</button>
+			<script>
+				
+				$(document).ready(function(){
+				    $('.hidden').each(function(i){
+					setTimeout(function(){$('.hidden').eq(i).css({'display':'inline-block'}).animate( {opacity : 1}, 500)},i*500)
+				    })
+				})
+				
+			</script>
+			<script>
+			$('#openall').click(function(){
+				$('.link').each(
+					function(){
+						window.open($(this).attr("href"),"_blank")
+					}
+					)
+			})
+			</script>
+			
+		</div>
+

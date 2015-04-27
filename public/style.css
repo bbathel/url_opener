@@ -1,0 +1,44 @@
+.formdiv{
+    display:block;
+    width:33%;
+    margin:auto;
+    padding:1%;
+    background-color:#345678;
+    color:#987654;
+}
+.formdiv textarea{
+    height:300px;
+    width:85%;
+    margin:auto;
+    display:block;
+}
+.formdiv input[type='submit'], #openall{
+    margin:auto;
+    font-size:16px;
+    font-weight:900;
+    display:block;
+    height:40px !important;
+}
+.resultdiv{
+    width:32%;
+    outline:5px ridge #345678;
+    color:#987654;
+    display:block;
+    margin:auto;
+    padding:1%;
+    position:relative;
+    overflow:auto;
+}
+.link{
+    display:inline-block;
+    width:49%;
+    float:left;
+    text-align:center;
+}
+#openall{
+    background-color:#345678;
+    color:#987654;
+}
+.hidden{
+    opacity: 0;
+    display:none;
