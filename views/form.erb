@@ -11,14 +11,24 @@
 				<legend>Links</legend>
 			<% if !params[:urls].nil? %>
 				<% urls = params[:urls] %>
-				<% urls.split.each do |url| %>
-					<% if (url =~ /https?/i )%>
-					<%= "<a class='link hidden' href='#{url}' target='_blank'>#{url}</a>" %>
-				        <% else %>
-					<%=  "<a class='link hidden' href='//#{url}' target='_blank'>#{url}</a>" %>
+				<% if urls.include?(',') %>
+					<% urls.split(",").each do |url| %>
+						<% if (url =~ /https?/i )%>
+						<%= "<a class='link hidden' href='#{url}' target='_blank'>#{url}</a>" %>
+						<% else %>
+						<%=  "<a class='link hidden' href='//#{url}' target='_blank'>#{url}</a>" %>
+						<% end %>
 					<% end %>
+				<% else %>
+					<% urls.split.each do |url| %>
+						<% if (url =~ /https?/i )%>
+						<%= "<a class='link hidden' href='#{url}' target='_blank'>#{url}</a>" %>
+						<% else %>
+						<%=  "<a class='link hidden' href='//#{url}' target='_blank'>#{url}</a>" %>
+						<% end %> 	
+					<% end %>
+					
 				<% end %>
-				
 			<% end %>
 			</fieldset>
 			<button id="openall" >OPEN ALL</button>
